@@ -1,13 +1,13 @@
 import { NgModule } from '@angular/core';
 import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
 import { HomeComponent } from './pages/home/home.component';
-import { PerfilComponent } from './pages/perfil/perfil.component';
 import { ListasComponent } from './pages/listas/listas.component';
 import { RecuperarComponent } from './pages/recuperar/recuperar.component';
 import { HistorialComponent } from './pages/historial/historial.component';
 import { ArticulosComponent } from './pages/articulos/articulos.component';
 import { CategoriaComponent } from './pages/categoria/categoria.component';
 import { ListaArtComponent } from './pages/lista-art/lista-art.component';
+import { PerfilComponent } from './pages/perfil/perfil.component';
 
 
 
