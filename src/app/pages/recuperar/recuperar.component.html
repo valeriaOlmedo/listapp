@@ -1,0 +1,53 @@
+<ion-header>
+  <ion-toolbar>
+
+    <ion-title class="subtitulo ion-text-wrap">
+      Restaurar Seña
+  </ion-title>
+    <ion-buttons slot="start">
+      <ion-button (click)="openMenu()">
+         <ion-icon color="primary" slot="icon-only"  name="menu-sharp"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+
+    <ion-buttons slot="end">
+      <ion-button  >
+        <ion-icon color="primary" slot="icon-only"  name="receipt"></ion-icon>
+     </ion-button>
+      <ion-button  >
+         <ion-icon color="primary" slot="icon-only"  name="person-circle"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+
+  </ion-toolbar>
+</ion-header>
+
+<ion-item >
+  <ion-avatar item-start>
+    <img src="./assets/icon/1.png"/>
+  </ion-avatar>
+  <h2>Recuperar Password</h2>
+</ion-item>
+
+<ion-content>
+  <ion-row class="ion-text-center">
+    <ion-col size="12">
+      <ion-item>
+        <ion-label position="floating">Correo</ion-label>
+        <ion-input type="text" placeholder="correo"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label position="stacked">Stacked Label</ion-label>
+        <ion-input placeholder="placeholder"></ion-input>
+      </ion-item>
+    </ion-col>
+  </ion-row>
+
+ <div style="text-align: end; margin: 10px;">
+    <ion-col size="12">
+      <ion-button color="primary"  shape="round" >
+        Recuperar
+      </ion-button>
+    </ion-col>
+  </div>
+</ion-content>

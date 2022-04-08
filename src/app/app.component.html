@@ -1,0 +1,71 @@
+<ion-app>
+
+  <ion-split-pane contentId="main">
+    <!--  the side menu  -->
+
+
+    <ion-menu contentId="main" menuId="principal" lines >
+
+      <ion-content>
+        <div class="header"></div>
+        <div class="content">
+          <img  src="./assets/icon/1.png">
+
+          <ion-label>
+            <h2>myList</h2>
+            <p>Menu</p>
+          </ion-label>
+
+        </div>
+
+        <ion-list lines="none">
+
+          <ion-menu-toggle autoHide=false>
+            <ion-item  button=true detail=true [routerLink]="['listas']" >
+              <ion-label class="normal">Listas</ion-label>
+              <ion-icon slot="start"  name="receipt"></ion-icon>
+            </ion-item>
+          </ion-menu-toggle>
+
+          <ion-menu-toggle autoHide=false >
+            <ion-item  button=true detail=true [routerLink]="['listaart']" >
+              <ion-label class="normal">Articulos</ion-label>
+              <ion-icon slot="start" name="list-circle"></ion-icon>
+            </ion-item>
+          </ion-menu-toggle>
+
+          <ion-menu-toggle autoHide=false >
+            <ion-item  button=true detail=true [routerLink]="['categoria']" >
+              <ion-label class="normal">Categoria</ion-label>
+              <ion-icon slot="start" name="albums"></ion-icon>
+
+            </ion-item>
+          </ion-menu-toggle>
+
+          <ion-menu-toggle autoHide=false >
+            <ion-item  button=true detail=true [routerLink]="['historial']" >
+              <ion-label class="normal">Historial de Compras</ion-label>
+              <ion-icon slot="start"  name="archive-sharp"></ion-icon>
+            </ion-item>
+          </ion-menu-toggle>
+          <ion-menu-toggle autoHide=false >
+            <ion-item  button=true detail=true [routerLink]="['/perfil']" >
+              <ion-label class="normal">Perfil de Usuario</ion-label>
+              <ion-icon slot="start" name="person-circle"></ion-icon>
+            </ion-item>
+          </ion-menu-toggle>
+
+
+        </ion-list>
+      </ion-content>
+
+
+
+    </ion-menu>
+    <!-- the main content -->
+    <ion-router-outlet id="main"></ion-router-outlet>
+  </ion-split-pane>
+
+
+
+</ion-app>

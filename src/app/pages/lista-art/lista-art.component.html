@@ -1,0 +1,38 @@
+<ion-header>
+
+  <ion-toolbar>
+    <ion-title class="subtitulo ion-text-wrap">
+      Lista Articulo
+  </ion-title>
+    <ion-buttons slot="start">
+      <ion-button (click)="openMenu()">
+         <ion-icon color="primary" slot="icon-only"  name="menu-sharp"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+    <ion-buttons slot="end">
+      <ion-button  >
+        <ion-icon color="primary" slot="icon-only"  name="receipt"></ion-icon>
+     </ion-button>
+      <ion-button  >
+         <ion-icon color="primary" slot="icon-only"  name="person-circle"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-searchbar></ion-searchbar>
+  <ion-item>
+    <ion-label>Pan</ion-label>
+    <ion-button routerLink="/articulo" color="success"><ion-icon  name="pencil-sharp"></ion-icon></ion-button>
+    <ion-button color="danger"><ion-icon name="trash-outline"></ion-icon></ion-button>
+
+
+
+  </ion-item>
+  <ion-item>
+    <ion-label>Manteca</ion-label>
+    <ion-button routerLink="/articulo" color="success"><ion-icon name="pencil-sharp"></ion-icon></ion-button>
+    <ion-button color="danger"><ion-icon name="trash-outline"></ion-icon></ion-button>
+  </ion-item>
+</ion-content>

@@ -1,0 +1,80 @@
+
+
+
+  <ion-header>
+    <ion-toolbar>
+      <ion-title class="subtitulo ion-text-wrap">
+        Iniciar Sesion
+    </ion-title>
+
+      <ion-buttons slot="start">
+        <ion-button (click)="openMenu()">
+           <ion-icon color="primary" slot="icon-only"  name="menu-sharp"></ion-icon>
+        </ion-button>
+      </ion-buttons>
+
+      <ion-buttons slot="end">
+        <ion-button  >
+          <ion-icon color="primary" slot="icon-only"  name="receipt"></ion-icon>
+       </ion-button>
+        <ion-button  >
+           <ion-icon color="primary" slot="icon-only"  name="person-circle"></ion-icon>
+        </ion-button>
+      </ion-buttons>
+
+    </ion-toolbar>
+  </ion-header>
+
+  <ion-item >
+    <ion-avatar item-start>
+      <img src="./assets/icon/1.png"/>
+    </ion-avatar>
+    <h2>Ingresar Datos</h2>
+  </ion-item>
+
+<ion-item>
+  <ion-label   class="normal" position="floating">
+      Email:
+  </ion-label>
+  <ion-input name="email"[(ngModel)]="cliente.email" class="normal" type="email" inputmode="email">
+  </ion-input>
+</ion-item>
+
+<ion-item>
+  <ion-label   class="normal" position="floating">
+      Nombre y Apellido:
+  </ion-label>
+  <ion-input name="nombre"  [(ngModel)]="cliente.nombre" class="normal" type="text" inputmode="text">
+  </ion-input>
+</ion-item>
+
+<ion-item>
+  <ion-label   class="normal" position="floating">
+      Password:
+  </ion-label>
+  <ion-input name= "passsword" [(ngModel)]="cliente.password" class="normal" type="password" inputmode="password">
+  </ion-input>
+</ion-item>
+
+<ion-item>
+  <ion-label   class="normal" position="floating">
+      Direccion:
+  </ion-label>
+  <ion-input name="direccion"[(ngModel)]="cliente.direccion" class="normal" type="Text" inputmode="text">
+  </ion-input>
+</ion-item>
+
+
+<ion-item>
+  <img class="image"  [src]="cliente.foto">
+</ion-item>
+
+
+
+<div style="text-align: end; margin: 10px;">
+  <ion-button   class="normal" color="primary">registrarse</ion-button>
+  <ion-button    class="normal" color="primary">login</ion-button>
+  <ion-button   routerLink="/recuperar" class="normal" color="primary">Recuperar</ion-button>
+</div>
+
+
