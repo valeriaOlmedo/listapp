@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { MenuController, LoadingController, ToastController, AlertController } from '@ionic/angular';
-import { Cliente } from '../../backend/models';
+import { MenuController } from '@ionic/angular';
+
 @Component({
   selector: 'app-perfil',
   templateUrl: './perfil.component.html',
@@ -8,17 +8,6 @@ import { Cliente } from '../../backend/models';
 })
 export class PerfilComponent implements OnInit {
 
-  cliente: Cliente = {
-    uid: '',
-    email: '',
-    telefono: '',
-    foto: '',
-    descripcion: '',
-    nombre: '',
-    apellido: '',
-    password: '',
-    direccion: null,
-  };
 
   constructor(public menucontroller: MenuController,)
    { }
