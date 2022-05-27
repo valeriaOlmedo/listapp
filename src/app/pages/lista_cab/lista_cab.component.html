@@ -1,0 +1,37 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title class="subtitulo ion-text-wrap">
+      myList
+  </ion-title>
+    <ion-buttons slot="start">
+      <ion-button (click)="openMenu()">
+         <ion-icon color="primary" slot="icon-only"  name="menu-sharp"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+    <ion-buttons slot="end">
+      <ion-button  >
+        <ion-icon color="primary" slot="icon-only"  name="receipt"></ion-icon>
+     </ion-button>
+      <ion-button  >
+         <ion-icon color="primary" slot="icon-only"  name="person-circle"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+<ion-searchbar></ion-searchbar>
+<ion-content >
+
+  <ion-list  *ngFor="let item of cabecera,">
+    <ion-item >
+      <ion-icon slot="start" name="receipt"></ion-icon>
+      <ion-label>{{item.clist_titulo}}</ion-label>
+      <ion-button slot="end" color="success"><ion-icon name="chevron-forward-outline"></ion-icon></ion-button>
+
+    </ion-item>
+  </ion-list>
+
+  <ion-list>
+    <div style="margin-top: 20px;"></div>
+      <ion-button (click)="listarCab()" color="tertiary" shape="round" expand="full" block>¡Agregar!</ion-button>
+  </ion-list>
+</ion-content>
