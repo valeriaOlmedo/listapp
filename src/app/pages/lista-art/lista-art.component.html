@@ -13,7 +13,7 @@
       <ion-button  >
         <ion-icon color="primary" slot="icon-only"  name="receipt"></ion-icon>
      </ion-button>
-      <ion-button  >
+      <ion-button>
          <ion-icon color="primary" slot="icon-only"  name="person-circle"></ion-icon>
       </ion-button>
     </ion-buttons>
@@ -22,19 +22,15 @@
 
 <ion-content>
   <ion-searchbar></ion-searchbar>
-  <ion-item>
-    <ion-label>Pan</ion-label>
-    <ion-button routerLink="/articulo" color="success"><ion-icon  name="pencil-sharp"></ion-icon></ion-button>
-    <ion-button color="danger"><ion-icon name="trash-outline"></ion-icon></ion-button>
 
+  <ion-list *ngFor="let item of articulos,">
+    <ion-item>
+      <ion-label>{{item.art_descripcion}}</ion-label>
+      <ion-button routerLink="/articulo" color="success"><ion-icon name="pencil-sharp"></ion-icon></ion-button>
+      <ion-button color="danger"><ion-icon name="trash-outline"></ion-icon></ion-button>
+    </ion-item>
+  </ion-list>
 
-
-  </ion-item>
-  <ion-item>
-    <ion-label>Manteca</ion-label>
-    <ion-button routerLink="/articulo" color="success"><ion-icon name="pencil-sharp"></ion-icon></ion-button>
-    <ion-button color="danger"><ion-icon name="trash-outline"></ion-icon></ion-button>
-  </ion-item>
   <ion-list>
     <div style="margin-top: 20px;"></div>
       <ion-button color="tertiary" shape="round" expand="full" block>¡Agregar!</ion-button>

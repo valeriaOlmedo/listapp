@@ -22,6 +22,7 @@ import { ListaArtComponent } from './lista-art/lista-art.component';
     ArticulosComponent,
     HistorialComponent,
     CategoriaComponent,
+
     ListaArtComponent
   ],
   imports: [

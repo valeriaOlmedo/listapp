@@ -22,19 +22,15 @@
 
 <ion-content>
   <ion-searchbar></ion-searchbar>
-  <ion-item>
-    <ion-label>Panificados</ion-label>
-    <ion-button routerLink="/articulo" color="success"><ion-icon  name="pencil-sharp"></ion-icon></ion-button>
-    <ion-button color="danger"><ion-icon name="trash-outline"></ion-icon></ion-button>
 
-  </ion-item>
-  <ion-item>
-    <ion-label>Varios</ion-label>
-    <ion-button routerLink="/articulo" color="success"><ion-icon name="pencil-sharp"></ion-icon></ion-button>
-    <ion-button color="danger"><ion-icon name="trash-outline"></ion-icon></ion-button>
-  </ion-item>
-  <ion-list>
-    <div style="margin-top: 20px;"></div>
-      <ion-button color="tertiary" shape="round" expand="full" block>¡Agregar!</ion-button>
+  <ion-list *ngFor="let item of categorias,">
+    <ion-item>
+      <ion-label>{{item.cat_descripcion}}</ion-label>
+      <ion-button routerLink="/articulo" color="success"><ion-icon name="pencil-sharp"></ion-icon></ion-button>
+      <ion-button color="danger"><ion-icon name="trash-outline"></ion-icon></ion-button>
+    </ion-item>
   </ion-list>
+
+  <div style="margin-top: 20px;"></div>
+    <ion-button color="tertiary" shape="round" expand="full" block>¡Agregar!</ion-button>
 </ion-content>

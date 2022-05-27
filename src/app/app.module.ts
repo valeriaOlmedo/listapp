@@ -11,6 +11,9 @@ import { environment } from '../environments/environment';
 import { AngularFirestoreModule } from '@angular/fire/compat/firestore';
 import { AngularFireStorageModule } from '@angular/fire/compat/storage';
 import { AngularFireAuthModule } from '@angular/fire/compat/auth';
+import { HttpClientModule } from '@angular/common/http';
+import { CategoriaComponent } from './pages/categoria/categoria.component';
+import { PagesModule } from './pages/pages.module';
 @NgModule({
   declarations: [AppComponent],
   entryComponents: [],
@@ -21,6 +24,8 @@ import { AngularFireAuthModule } from '@angular/fire/compat/auth';
       AngularFirestoreModule,
       AngularFireStorageModule,
       AngularFireAuthModule,
+      HttpClientModule,
+      PagesModule
     ],
   providers: [{ provide: RouteReuseStrategy, useClass: IonicRouteStrategy }],
   bootstrap: [AppComponent],

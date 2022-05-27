@@ -1,3 +1,5 @@
+/*
+
 import { Injectable } from '@angular/core';
 import { AngularFirestore } from '@angular/fire/compat/firestore';
 
@@ -30,4 +32,7 @@ updateDoc(data: any, path: string, id: string) {
 getId() {
   return this.database.createId();
 }
+
+
 }
+*/
