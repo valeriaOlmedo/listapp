@@ -12,7 +12,7 @@ import { AngularFirestoreModule } from '@angular/fire/compat/firestore';
 import { AngularFireStorageModule } from '@angular/fire/compat/storage';
 import { AngularFireAuthModule } from '@angular/fire/compat/auth';
 import { HttpClientModule } from '@angular/common/http';
-import { CategoriaComponent } from './pages/categoria/categoria.component';
+//import { CategoriaComponent } from './pages/categoria/categoria.component';
 import { PagesModule } from './pages/pages.module';
 @NgModule({
   declarations: [AppComponent],

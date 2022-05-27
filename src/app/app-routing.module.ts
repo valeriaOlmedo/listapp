@@ -9,7 +9,7 @@ import { CategoriaComponent } from './pages/categoria/categoria.component';
 import { ListaArtComponent } from './pages/lista-art/lista-art.component';
 import { PerfilComponent } from './pages/perfil/perfil.component';
 import { ListaCabComponent } from './pages/lista_cab/lista_cab.component';
-
+//import { CabeceraPage } from './pages/cabecera/cabecera.page';
 
 const routes: Routes = [
   { path: 'home',component:HomeComponent },
@@ -21,12 +21,14 @@ const routes: Routes = [
   { path: 'articulos',component:ArticulosComponent },
   { path: 'categoria',component:CategoriaComponent },
   { path: 'lista_cab',component:ListaCabComponent },
+ // { path: 'cabecera',component:CabeceraPage },
   { path: '',component:HomeComponent },
   {
     path: '**',
     redirectTo: 'home',
     pathMatch: 'full'
-  }
+  },
+
 ];
 
 

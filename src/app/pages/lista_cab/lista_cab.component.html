@@ -18,20 +18,23 @@
     </ion-buttons>
   </ion-toolbar>
 </ion-header>
-<ion-searchbar></ion-searchbar>
-<ion-content >
 
-  <ion-list  *ngFor="let item of cabecera,">
+
+<ion-content >
+  <ion-searchbar></ion-searchbar>
+
+  <ion-list  *ngFor="let item of cabeceras">
     <ion-item >
+
       <ion-icon slot="start" name="receipt"></ion-icon>
+
       <ion-label>{{item.clist_titulo}}</ion-label>
       <ion-button slot="end" color="success"><ion-icon name="chevron-forward-outline"></ion-icon></ion-button>
-
     </ion-item>
   </ion-list>
 
   <ion-list>
     <div style="margin-top: 20px;"></div>
-      <ion-button (click)="listarCab()" color="tertiary" shape="round" expand="full" block>¡Agregar!</ion-button>
+      <ion-button color="tertiary" shape="round" expand="full" block>¡Agregar!</ion-button>
   </ion-list>
 </ion-content>

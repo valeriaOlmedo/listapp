@@ -13,8 +13,10 @@ export class Lista_cabService {
   constructor(private http: HttpClient) {}
 
   public listLista_cab(): Observable<any> {
-    return this.http.get(`${this.URL}/Lista_cab`);
+    return this.http.get(`${this.URL}/lista_cab/`);
   }
+
+
 
   public filtrarLista_cab(data: String): Observable<any> {
     return this.http.get(`${this.URL}/Lista_cab-filter` + data);

@@ -9,20 +9,17 @@ import { CategoriaService } from 'src/app/services/categoria.service';
 })
 export class CategoriaComponent implements OnInit {
   categorias;
-
   constructor(
     public categoriacontroller: MenuController,
     public categoriaService: CategoriaService
     ) { }
-
   ngOnInit() {
     this.listarCategorias();
   }
   openMenu() {
     console.log('open menu');
     this.categoriacontroller.toggle('principal');
-}
-
+  }
 listarCategorias() {
   this.categoriaService.listCategorias().subscribe(res => {
     this.categorias = res.categorias;
