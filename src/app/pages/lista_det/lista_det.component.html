@@ -22,26 +22,16 @@
 <ion-content [fullscreen]="true">
   <ion-list>
     <ion-item>
-      <ion-avatar item-start>
-        <img
-          src="https://1.bp.blogspot.com/-O3BQY2jJjxk/UF-3el4XveI/AAAAAAAAGR4/QNkjvS9zHKk/s1600/dinamicas+gatito.jpg"
-        />
-      </ion-avatar>
-
+      <ion-icon slot="start" name="receipt"></ion-icon>
       <h2>Lista de compras</h2>
     </ion-item>
   </ion-list>
 
-  <ion-list radio-group>
+  <ion-list radio-group  *ngFor="let item of detalles">
     <ion-item>
-      <ion-label>Pan</ion-label>
+      <ion-label>{{item.dlist_id}}</ion-label>
       <ion-button color="success"><ion-icon name="pencil-sharp"></ion-icon></ion-button>
       <ion-checkbox checked=""></ion-checkbox>
-    </ion-item>
-    <ion-item>
-      <ion-label>Manteca</ion-label>
-      <ion-button color="success"><ion-icon name="pencil-sharp"></ion-icon></ion-button>
-      <ion-checkbox value="rust"></ion-checkbox>
     </ion-item>
   </ion-list>
 
