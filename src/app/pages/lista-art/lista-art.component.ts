@@ -1,5 +1,5 @@
-import { Component, OnInit } from '@angular/core';
-import { MenuController } from '@ionic/angular';
+import { Component, OnInit,ViewChild } from '@angular/core';
+import { MenuController,AlertController,ToastController,IonList } from '@ionic/angular';
 import { ArticuloService } from 'src/app/services/articulo.service';
 
 @Component({
@@ -8,10 +8,14 @@ import { ArticuloService } from 'src/app/services/articulo.service';
   styleUrls: ['./lista-art.component.scss'],
 })
 export class ListaArtComponent implements OnInit {
+  @ViewChild(IonList) ionList: IonList;
 articulos;
   constructor(
     public listaartcontroller: MenuController,
-    public articuloService:ArticuloService
+    public articuloService:ArticuloService,
+    public alertController: AlertController,
+    private toastCtrl: ToastController
+
     ) { }
 
   ngOnInit() {
@@ -30,66 +34,44 @@ listarArticulos() {
   })
 }
 
-}
 
+async borrarArticulo (codigo) {
+  console.log(codigo);
+  const alert = await this.alertController.create({
+    header: 'Eliminar Articulo',
+    message: '¿Está seguro de querer eliminar el articulo?',
+    buttons: [
+      {
+        text: 'Cancelar',
+        role: 'cancel',
+        id: 'cancel-button',
+      }, {
+        text: 'Eliminar',
+        id: 'confirm-button',
+        handler: () => {
 
-/*
-import { Component, OnInit } from '@angular/core';
-import { MenuController } from '@ionic/angular';
-import { ArticuloService } from 'src/app/services/articulo.service';
-
-@Component({
-  selector: 'app-articulo',
-  //templateUrl: './articulo.component.html',
-  templateUrl: './lista-art.component.html',
-  styleUrls: ['./lista-art.component.scss'],
-})
-export class ListaArtComponent implements OnInit {
-  articulos;
-
-  constructor(
-    public articulocontroller: MenuController,
-    public articuloService: ArticuloService
-    ) { }
-
-  ngOnInit() {
-    this.listarArticulos();
-  }
-  openMenu() {
-    console.log('open menu');
-    this.articulocontroller.toggle('principal');
-}
-
-listarArticulos() {
-  this.articuloService.listArticulos().subscribe(res => {
-    this.articulos = res.articulos;
-    console.log(this.articulos);
-  })
-}
-}
-/* buscarArticulos(event) {
-  let val = event.target.value;
-  if (val && val.trim() != '') {
-    this.articuloService.filtrarArticulo(val).subscribe((res) => {
-      this.articulos = res.result;
-      this.articulos = this.articulos.filter((item) => {
-        return (item.cat_nombre.toLowerCase().indexOf(val.toLowerCase()) > -1);
-      })
+  this.articuloService.delete(codigo).subscribe(async (data) => {
+    const message = data['success']
+      ? 'Estado #' + codigo + ' borrado con exito'
+      : ' Error al eliminar';
+    const toast = await this.toastCtrl.create({
+      message,
+      duration: 2000,
     });
-  } else {
     this.listarArticulos();
-  }
+
+    toast.present();
+
+    this.ionList.closeSlidingItems();
+  });
+}
+      }
+]
+});
+
+await alert.present();
+
 }
 
-eliminarArticulo(articulo, i, slidingItem) {
-  if (window.confirm("Seguro que quieres eliminar?")) {
-    this.articuloService.eliminarArticulo(this.articulos.cat_id)
-      .subscribe(() => {
-        this.articulos.splice(i, 1);
-        slidingItem.close();
-        this.ionViewWillEnter();
-        console.log("Articulo eliminada!");
-      });
-  } */
-//}
+}
 

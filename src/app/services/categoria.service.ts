@@ -20,9 +20,11 @@ export class CategoriaService {
     return this.http.get(`${this.URL}/categoria-filter/` + data);
   }
 
-  public getCategoriaById(id: number): Observable<any> {
-    return this.http.get(`${this.URL}/categoria/find/` + id);
+  public getCategoriaById(codigo: number): Observable<any> {
+    return this.http.get(`${this.URL}/categoria/find/` + codigo);
   }
+
+
 
   public crearCategoria(data: Observable<Categoria[]>): Observable<any> {
     return this.http.post<Categoria[]>(`${this.URL}/categoria/create`, data);
@@ -32,7 +34,20 @@ export class CategoriaService {
     return this.http.put<Categoria[]>(`${this.URL}/categoria/update`, data);
   }
 
+  public delete(id: Observable<Categoria[]>) {
+    return this.http.delete<Categoria[]>(`${this.URL}/categoria/remove/` + id);
+  }
+
+
+
+/*
+
   public eliminarCategoria(id: Observable<Categoria[]>) {
     return this.http.delete<Categoria[]>(`${this.URL}/categoria/remove/` + id);
   }
+
+  public delete(codigo: String) {
+    return this.http.delete(this.URL + `/categoria/remove/${codigo}`);
+  }
+*/
 }

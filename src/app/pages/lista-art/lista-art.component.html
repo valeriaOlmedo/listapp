@@ -23,11 +23,12 @@
 <ion-content>
   <ion-searchbar></ion-searchbar>
 
-  <ion-list *ngFor="let item of articulos,">
+  <ion-list  *ngFor="let articulos of articulos">
     <ion-item>
-      <ion-label>{{item.art_descripcion}}</ion-label>
+      <ion-label>{{articulos.art_descripcion}}</ion-label>
       <ion-button routerLink="/articulo" color="success"><ion-icon name="pencil-sharp"></ion-icon></ion-button>
-      <ion-button color="danger"><ion-icon name="trash-outline"></ion-icon></ion-button>
+      <ion-button color="danger" class="eliminar"
+      (click)="borrarArticulo(articulos.art_id)" ><ion-icon name="trash-outline"></ion-icon></ion-button>
     </ion-item>
   </ion-list>
 

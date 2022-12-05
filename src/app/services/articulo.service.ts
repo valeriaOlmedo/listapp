@@ -31,8 +31,13 @@ export class ArticuloService {
   public actualizarArticulo(data: Observable<Articulo[]>): Observable<any> {
     return this.http.put<Articulo[]>(`${this.URL}/Articulo/update`, data);
   }
-
+/*
   public eliminarArticulo(id: Observable<Articulo[]>) {
     return this.http.delete<Articulo[]>(`${this.URL}/Articulo/remove/` + id);
+  }*/
+  public delete(id: Observable<Articulo[]>) {
+    return this.http.delete<Articulo[]>(`${this.URL}/articulo/remove/` + id);
   }
+
+
 }
