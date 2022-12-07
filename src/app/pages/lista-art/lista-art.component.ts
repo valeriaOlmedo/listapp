@@ -1,6 +1,7 @@
 import { Component, OnInit,ViewChild } from '@angular/core';
 import { MenuController,AlertController,ToastController,IonList } from '@ionic/angular';
 import { ArticuloService } from 'src/app/services/articulo.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-lista-art',
@@ -14,7 +15,8 @@ articulos;
     public listaartcontroller: MenuController,
     public articuloService:ArticuloService,
     public alertController: AlertController,
-    private toastCtrl: ToastController
+    private toastCtrl: ToastController,
+    public router: Router
 
     ) { }
 

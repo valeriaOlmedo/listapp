@@ -11,6 +11,7 @@ import { HistorialComponent } from './historial/historial.component';
 import { CategoriaComponent } from './categoria/categoria.component';
 import { ListaArtComponent } from './lista-art/lista-art.component';
 import { ListaCabComponent } from './lista_cab/lista_cab.component';
+import { RegistroarticuloPage } from './registroarticulo/registroarticulo.page';
 
 
 
@@ -24,7 +25,9 @@ import { ListaCabComponent } from './lista_cab/lista_cab.component';
     CategoriaComponent,
     ListaArtComponent,
     ListaCabComponent,
-    ListaDetComponent
+    ListaDetComponent,
+    RegistroarticuloPage,
+
   ],
   imports: [
     CommonModule,

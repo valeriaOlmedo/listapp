@@ -20,6 +20,16 @@ export class ArticuloService {
     return this.http.get(`${this.URL}/Articulo-filter/` + data);
   }
 
+  public create(articulo:any){
+    if(articulo.cli_codigo){
+      //Actualiza los datos
+      return this.http.put(this.URL+`/Articulo/update`,articulo);
+    }else{
+    // Crea Registro nuevo
+      return this.http.post(this.URL+`/Articulo/create`,articulo);
+    }
+  }
+
   public getArticuloById(id: number): Observable<any> {
     return this.http.get(`${this.URL}/Articulo/find/` + id);
   }

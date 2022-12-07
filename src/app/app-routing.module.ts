@@ -9,6 +9,8 @@ import { CategoriaComponent } from './pages/categoria/categoria.component';
 import { ListaArtComponent } from './pages/lista-art/lista-art.component';
 import { PerfilComponent } from './pages/perfil/perfil.component';
 import { ListaCabComponent } from './pages/lista_cab/lista_cab.component';
+import { RegistroarticuloPage } from './pages/registroarticulo/registroarticulo.page';
+
 
 
 const routes: Routes = [
@@ -22,10 +24,16 @@ const routes: Routes = [
   { path: 'categoria',component:CategoriaComponent },
   { path: 'lista_cab',component:ListaCabComponent },
   { path: '',component:HomeComponent },
+  { path: 'registroarticulo',component:RegistroarticuloPage },
+
   {
     path: '**',
     redirectTo: 'home',
     pathMatch: 'full'
+  },
+  {
+    path: 'registroarticulo',
+    loadChildren: () => import('./pages/registroarticulo/registroarticulo.module').then( m => m.RegistroarticuloPageModule)
   },
 
 ];
