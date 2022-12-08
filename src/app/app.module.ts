@@ -25,6 +25,7 @@ import { PagesModule } from './pages/pages.module';
       AngularFireStorageModule,
       AngularFireAuthModule,
       HttpClientModule,
+
       PagesModule
     ],
   providers: [{ provide: RouteReuseStrategy, useClass: IonicRouteStrategy }],
