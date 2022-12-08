@@ -1,3 +1,4 @@
+<!-- Cabecera -->
 <ion-header>
   <ion-toolbar>
     <ion-title class="subtitulo ion-text-wrap">
@@ -19,19 +20,66 @@
   </ion-toolbar>
 </ion-header>
 
-
+<!-- Contenido Listar -->
 <ion-content>
   <ion-searchbar></ion-searchbar>
-
-  <ion-list *ngFor="let categorias of categorias">
+  <ion-list *ngFor="let ListCategorias of categorias">
     <ion-item>
-      <ion-label>{{categorias.cat_descripcion}}</ion-label>
-      <ion-button routerLink="/articulo" color="success"><ion-icon name="pencil-sharp"></ion-icon></ion-button>
+      <ion-label>{{ListCategorias.cat_descripcion}}</ion-label>
+      <ion-button color="success" (click)="updateCategoria(ListCategorias.cat_id)" ><ion-icon name="pencil-sharp" ></ion-icon></ion-button>
       <ion-button color="danger" class="eliminar"
-      (click)="borrarCategorias(categorias.cat_id)" ><ion-icon name="trash-outline"></ion-icon></ion-button>
+      (click)="borrarCategorias(ListCategorias.cat_id)" ><ion-icon name="trash-outline"></ion-icon></ion-button>
     </ion-item>
   </ion-list>
-
   <div style="margin-top: 20px;"></div>
     <ion-button color="tertiary" shape="round" expand="full" block>¡Agregar!</ion-button>
+</ion-content>
+
+<!-- Agregar y actualizar -->
+<ion-content>
+
+  <div style="text-align: end; margin: 10px;">
+    <ion-button  (click)="nuevo()"  class="normal" color="dark"> nuevo</ion-button>
+  </div>
+
+
+<div >
+
+  <ion-item>
+    <ion-buttons slot="end">
+      <ion-button (click)="enableNewCategoria = false">
+        <ion-icon slot="icon-only" name="close"></ion-icon>
+      </ion-button>
+       <ion-button (click)="guardarCategoria() ">
+        <ion-icon color="primary" slot="icon-only" name="save-sharp"></ion-icon>
+        </ion-button>
+    </ion-buttons>
+  </ion-item>
+
+  <h3 class="subtitulo encabezado">Ingrese datos de la categoria</h3>
+
+
+  <ion-item>
+    <ion-label   class="normal" position="floating">
+        ID:
+    </ion-label>
+    <ion-input [(ngModel)]="newCategoria.cat_id" class="normal" type="number" inputmode="text">
+    </ion-input>
+  </ion-item>
+
+  <ion-item>
+    <ion-label   class="normal" position="floating">
+        Nombre:
+    </ion-label>
+    <ion-input [(ngModel)]="newCategoria.cat_descripcion" class="normal" type="text" inputmode="text">
+    </ion-input>
+  </ion-item>
+
+
+
+
+</div>
+
+
+
 </ion-content>

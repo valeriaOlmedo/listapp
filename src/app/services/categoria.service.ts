@@ -21,17 +21,21 @@ export class CategoriaService {
   }
 
   public getCategoriaById(codigo: number): Observable<any> {
-    return this.http.get(`${this.URL}/categoria/find/` + codigo);
+    return this.http.get(`${this.URL}/categoria/find/${codigo}`);
   }
 
 
 
-  public crearCategoria(data: Observable<Categoria[]>): Observable<any> {
-    return this.http.post<Categoria[]>(`${this.URL}/categoria/create`, data);
+  public crearCategoria(data: Categoria): Observable<any> {
+    return this.http.post<Categoria>(`${this.URL}/categoria/create`, data);
   }
 
-  public actualizarCategoria(data: Observable<Categoria[]>): Observable<any> {
-    return this.http.put<Categoria[]>(`${this.URL}/categoria/update`, data);
+  // public actualizarCategoria(data: Observable<Categoria[]>): Observable<any> {
+  //   return this.http.put<Categoria[]>(`${this.URL}/categoria/update/`, data);
+  // }
+
+  public actualizarCategoria(data: Observable<Categoria>, idCategoria: number ): Observable<any> {
+    return this.http.put<Categoria[]>(`${this.URL}/categoria/update/${idCategoria}`, data);
   }
 
   public delete(id: Observable<Categoria[]>) {
