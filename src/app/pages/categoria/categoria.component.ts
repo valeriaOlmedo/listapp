@@ -16,10 +16,10 @@ export class CategoriaComponent implements OnInit {
   categorias;
 
   categoria: Categoria;
-  enableNewProducto = false;
+  enableNewCategoria = false;
 
   newCategoria: Categoria = {
-    cat_id: 0,
+    cat_id: null,
     cat_descripcion: '',
   };
 
@@ -85,9 +85,9 @@ export class CategoriaComponent implements OnInit {
   }
 
    async guardarCategoria() {
-    this.categoria = this.newCategoria;
+    this.newCategoria;
 
-    await this.categoriaService.crearCategoria(this.categoria).subscribe(async (data: any) => {
+    await this.categoriaService.crearCategoria(this.newCategoria, this.newCategoria.cat_id).subscribe(async (data: any) => {
       const message = data['success']
         ? 'Producto Guardado con exito'
         : ' Error al guardar';
@@ -117,16 +117,17 @@ export class CategoriaComponent implements OnInit {
 
       }
     );
-
-
-
-
-
-
-
     // this.newCategoria.cat_descripcion = this.categorias[]
 
   }
+//  limpiar() {
+//  this.enableNewCategoria = true;
+//   this.newCategoria = {
+//    cat_descripcion: '',
+//    cat_id:
+
+//    };
+//  }
 
 }
 
