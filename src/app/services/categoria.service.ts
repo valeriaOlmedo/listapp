@@ -26,8 +26,17 @@ export class CategoriaService {
 
 
 
-  public crearCategoria(data: Categoria): Observable<any> {
-    return this.http.post<Categoria>(`${this.URL}/categoria/create`, data);
+  public crearCategoria(data: Categoria, idCategoria): Observable<any> {
+    // return this.http.post<Categoria>(`${this.URL}/categoria/create`, data);
+
+    if(!data.cat_id){
+      console.log('creacion')
+      return this.http.post<Categoria>(`${this.URL}/categoria/create`, data);
+    }else{
+      console.log('modifcacion')
+      return this.http.put<Categoria[]>(`${this.URL}/categoria/update/`, data);
+    }
+
   }
 
   // public actualizarCategoria(data: Observable<Categoria[]>): Observable<any> {
