@@ -34,12 +34,18 @@ export class ArticuloService {
     return this.http.get(`${this.URL}/Articulo/find/` + id);
   }
 
-  public crearArticulo(data: Observable<Articulo[]>): Observable<any> {
-    return this.http.post<Articulo[]>(`${this.URL}/Articulo/create`, data);
+  public crearArticulo(data: Articulo,idArticulo): Observable<any> {
+    if(!data.art_id){
+      console.log('creacion')
+      return this.http.post<Articulo>(`${this.URL}/articulo/create`, data);
+    }else{
+      console.log('modifcacion')
+      return this.http.put<Articulo[]>(`${this.URL}/articulo/update/`, data);
+    }
   }
 
-  public actualizarArticulo(data: Observable<Articulo[]>): Observable<any> {
-    return this.http.put<Articulo[]>(`${this.URL}/Articulo/update`, data);
+  public actualizarArticulo(data: Observable<Articulo>, idArticulo: number ): Observable<any> {
+    return this.http.put<Articulo[]>(`${this.URL}/articulo/update/${idArticulo}`, data);
   }
 /*
   public eliminarArticulo(id: Observable<Articulo[]>) {

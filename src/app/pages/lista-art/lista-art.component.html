@@ -1,5 +1,5 @@
+<!-- Cabecera -->
 <ion-header>
-
   <ion-toolbar>
     <ion-title class="subtitulo ion-text-wrap">
       Lista Articulo
@@ -20,28 +20,88 @@
   </ion-toolbar>
 </ion-header>
 
+
+<!-- Contenido Listar -->
 <ion-content>
   <ion-searchbar></ion-searchbar>
-
-  <ion-list  *ngFor="let articulos of articulos">
+  <ion-list  *ngFor="let articulo of articulos">
     <ion-item>
-      <ion-label>{{articulos.art_descripcion}}</ion-label>
-      <ion-button routerLink="/articulo" color="success"><ion-icon name="pencil-sharp"></ion-icon></ion-button>
+      <ion-label>{{articulo.art_descripcion}}</ion-label>
+      <ion-button color="success" (click)="updateArticulo(articulo.art_id); enableNewArticulo = true" ><ion-icon name="pencil-sharp" ></ion-icon></ion-button>
       <ion-button color="danger" class="eliminar"
       (click)="borrarArticulo(articulos.art_id)" ><ion-icon name="trash-outline"></ion-icon></ion-button>
     </ion-item>
   </ion-list>
+  <div style="margin-top: 20px;"></div>
+</ion-content>
 
 
+<!-- Agregar y actualizar -->
+<ion-content>
+  <div style="text-align: end; margin: 10px;">
+    <ion-button  (click)="enableNewArticulo = true"  class="normal" color="tertiary" shape="round" expand="full" block> Nuevo</ion-button>
+  </div>
+
+<div *ngIf="enableNewArticulo">
+  <ion-item >
+    <ion-buttons slot="end">
+      <ion-button name="limpiar" (click)="enableNewArticulo = false ">
+        <ion-icon slot="icon-only" name="close"></ion-icon>
+      </ion-button>
+       <ion-button (click)="guardarArticulo() ">
+        <ion-icon color="primary" slot="icon-only" name="save-sharp"></ion-icon>
+        </ion-button>
+    </ion-buttons>
+  </ion-item>
+
+  <h3 class="subtitulo encabezado">Ingrese datos de la articulo</h3>
   <ion-list>
-    <div style="margin-top: 20px;">
-      <ion-fab vertical="bottom" horizontal="end" slot="fixed">
-        <ion-fab-button href="/pruebaarticulo">
-        <ion-icon name="add"></ion-icon>
-        </ion-fab-button>
-      </ion-fab>
-    </div>
-    </ion-list>
+    <ion-item >
+      <ion-select
+        [compareWith]="compareWith"
+        placeholder="Categoria"
+      [(ngModel)]="newArticulo.art_cat_id"
+      >
+        <ion-select-option  *ngFor="let categoria of categorias" [value]="categoria.cat_id ">{{ categoria.cat_descripcion }}</ion-select-option>
+      </ion-select>
+    </ion-item>
+    <ion-item lines="none">
 
+    </ion-item>
+  </ion-list>
+  <ion-item>
+    <ion-label   class="normal" position="floating">
+        ID:
+    </ion-label>
+    <ion-input [(ngModel)]="newArticulo.art_id" class="normal" type="number" inputmode="text" disabled>
+    </ion-input>
+  </ion-item>
+
+  <ion-item>
+    <ion-label   class="normal" position="floating">
+        Descripcion:
+    </ion-label>
+    <ion-input [(ngModel)]="newArticulo.art_descripcion" class="normal" type="text" inputmode="text">
+    </ion-input>
+  </ion-item>
+
+  <ion-item>
+    <ion-label   class="normal" position="floating">
+        Precio:
+    </ion-label>
+    <ion-input [(ngModel)]="newArticulo.art_precio" class="normal" type="text" inputmode="text">
+    </ion-input>
+  </ion-item>
+
+  <ion-item>
+    <ion-label   class="normal" position="floating">
+        Cantidad:
+    </ion-label>
+    <ion-input [(ngModel)]="newArticulo.art_cantidad" class="normal" type="text" inputmode="text">
+    </ion-input>
+  </ion-item>
+
+
+</div>
 
 </ion-content>

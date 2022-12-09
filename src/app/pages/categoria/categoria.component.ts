@@ -13,16 +13,16 @@ import { Categoria } from 'src/app/pages/interfaces/Categoria';
   styleUrls: ['./categoria.component.scss'],
 })
 export class CategoriaComponent implements OnInit {
-  categorias;
 
+  categorias;
   categoria: Categoria;
   enableNewCategoria = false;
 
   newCategoria: Categoria = {
     cat_id: null,
     cat_descripcion: '',
+    cat_codigo: 5,
   };
-
 
 
   @ViewChild(IonList) ionList: IonList;
@@ -87,7 +87,8 @@ export class CategoriaComponent implements OnInit {
    async guardarCategoria() {
     this.newCategoria;
 
-    await this.categoriaService.crearCategoria(this.newCategoria, this.newCategoria.cat_id).subscribe(async (data: any) => {
+
+    await this.categoriaService.crearCategoria(this.newCategoria, this.newCategoria.cat_id,).subscribe(async (data: any) => {
       const message = data['success']
         ? 'Producto Guardado con exito'
         : ' Error al guardar';
@@ -117,17 +118,8 @@ export class CategoriaComponent implements OnInit {
 
       }
     );
-    // this.newCategoria.cat_descripcion = this.categorias[]
 
   }
-//  limpiar() {
-//  this.enableNewCategoria = true;
-//   this.newCategoria = {
-//    cat_descripcion: '',
-//    cat_id:
-
-//    };
-//  }
 
 }
 
