@@ -33,19 +33,16 @@
     </ion-item>
   </ion-list>
   <div style="margin-top: 20px;"></div>
+
 </ion-content>
-
-
-<!-- Agregar y actualizar -->
-<ion-content>
-  <div style="text-align: end; margin: 10px;">
+<!-- botones nuevo y guardar y limpiar -->
+<div style="text-align: end; margin: 10px;">
     <ion-button  (click)="enableNewArticulo = true"  class="normal" color="tertiary" shape="round" expand="full" block> Nuevo</ion-button>
-  </div>
 
-<div *ngIf="enableNewArticulo">
-  <ion-item >
+  </div>
+<ion-item *ngIf="enableNewArticulo">
     <ion-buttons slot="end">
-      <ion-button name="limpiar" (click)="enableNewArticulo = false ">
+      <ion-button name="limpiar" (click)="enableNewArticulo = false;limpiar() ">
         <ion-icon slot="icon-only" name="close"></ion-icon>
       </ion-button>
        <ion-button (click)="guardarArticulo() ">
@@ -53,6 +50,12 @@
         </ion-button>
     </ion-buttons>
   </ion-item>
+<!-- Agregar y actualizar -->
+<ion-content>
+
+
+<div *ngIf="enableNewArticulo">
+
 
   <h3 class="subtitulo encabezado">Ingrese datos de la articulo</h3>
   <ion-list>
@@ -69,13 +72,6 @@
 
     </ion-item>
   </ion-list>
-  <ion-item>
-    <ion-label   class="normal" position="floating">
-        ID:
-    </ion-label>
-    <ion-input [(ngModel)]="newArticulo.art_id" class="normal" type="number" inputmode="text" disabled>
-    </ion-input>
-  </ion-item>
 
   <ion-item>
     <ion-label   class="normal" position="floating">

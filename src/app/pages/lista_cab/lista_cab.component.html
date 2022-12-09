@@ -29,15 +29,34 @@
       <ion-icon slot="start" name="receipt"></ion-icon>
 
       <ion-label>{{item.clist_titulo}}</ion-label>
-      <ion-button color="danger" slot="end"><ion-icon name="trash-outline"></ion-icon></ion-button>
-      <ion-button href="lista_det" slot="end" color="success"><ion-icon name="chevron-forward-outline"></ion-icon> </ion-button>
+      <ion-button (click)="borrarCabecera(item.clist_id)" color="danger" slot="end"><ion-icon name="trash-outline"></ion-icon></ion-button>
+      <ion-button (click)="updateCabecera(item.cllist_id)" slot="end" color="success"><ion-icon name="chevron-forward-outline"></ion-icon> </ion-button>
 
 
     </ion-item>
   </ion-list>
+      <ion-button (click)="enableNewCabecera= true" color="tertiary" shape="round" expand="full" block>Nueva lista</ion-button>
+      <ion-item *ngIf="enableNewCabecera">
+        <ion-buttons slot="end">
+          <ion-button name="limpiar" (click)="enableNewCabecera= false;limpiar() ">
+            <ion-icon slot="icon-only" name="close"></ion-icon>
+          </ion-button>
+           <ion-button (click)="guardarCabecera() ">
+            <ion-icon color="primary" slot="icon-only" name="save-sharp"></ion-icon>
+            </ion-button>
+        </ion-buttons>
+      </ion-item>
+    </ion-content>
 
-  <ion-list>
-    <div style="margin-top: 20px;"></div>
-      <ion-button color="tertiary" shape="round" expand="full" block>¡Agregar!</ion-button>
-  </ion-list>
-</ion-content>
+
+  <ion-content *ngIf="enableNewCabecera">
+    <h3 class="subtitulo encabezado">Ingrese datos de la lista</h3>
+    <ion-item>
+      <ion-label   class="normal" position="floating">
+          Titulo:
+      </ion-label>
+      <ion-input [(ngModel)]="newCabecera.clist_titulo" class="normal" type="text" inputmode="text">
+      </ion-input>
+    </ion-item>
+
+  </ion-content>

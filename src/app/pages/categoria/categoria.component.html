@@ -22,7 +22,7 @@
 
 <!-- Contenido Listar -->
 <ion-content>
-  <ion-searchbar></ion-searchbar>
+
   <ion-list *ngFor="let ListCategorias of categorias">
     <ion-item>
       <ion-label>{{ListCategorias.cat_descripcion}}</ion-label>
@@ -44,7 +44,7 @@
 <div *ngIf="enableNewCategoria">
   <ion-item >
     <ion-buttons slot="end">
-      <ion-button name="limpiar" (click)="enableNewCategoria = false ">
+      <ion-button name="limpiar" (click)="enableNewCategoria = false ; limpiar()">
         <ion-icon slot="icon-only" name="close"></ion-icon>
       </ion-button>
        <ion-button (click)="guardarCategoria() ">
@@ -54,13 +54,7 @@
   </ion-item>
 
   <h3 class="subtitulo encabezado">Ingrese datos de la categoria</h3>
-  <ion-item>
-    <ion-label   class="normal" position="floating">
-        ID:
-    </ion-label>
-    <ion-input [(ngModel)]="newCategoria.cat_id" class="normal" type="number" inputmode="text" disabled>
-    </ion-input>
-  </ion-item>
+
   <ion-item>
     <ion-label   class="normal" position="floating">
         Descripcion:

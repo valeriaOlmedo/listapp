@@ -26,8 +26,15 @@ export class Lista_cabService {
     return this.http.get(`${this.URL}/Lista_cab/find/` + id);
   }
 
-  public crearLista_cab(data: Observable<Lista_cab[]>): Observable<any> {
-    return this.http.post<Lista_cab[]>(`${this.URL}/Lista_cab/create`, data);
+  public crearLista_cab(data: Lista_cab,idCabecera): Observable<any> {
+    if(!data.clist_id){
+      console.log('creacion')
+      return this.http.post<Lista_cab>(`${this.URL}/Lista_cab/create`, data);
+    }else{
+      console.log('modificacion')
+      return this.http.put<Lista_cab[]>(`${this.URL}/Lista_cab/update"`, data);
+    }
+
   }
 
   public actualizarLista_cab(data: Observable<Lista_cab[]>): Observable<any> {

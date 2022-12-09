@@ -120,6 +120,12 @@ export class CategoriaComponent implements OnInit {
     );
 
   }
+ limpiar(){
 
+  this.newCategoria.cat_descripcion = ' ';
+  this,this.newCategoria.cat_id = null;
+
+console.log( ' limpia',this.newCategoria);
+ }
 }
 

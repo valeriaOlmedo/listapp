@@ -54,6 +54,17 @@ newArticulo: Articulo = {
     console.log('open menu');
     this.listaartcontroller.toggle('principal');
 }
+
+
+limpiar(){
+  this.newArticulo.art_cat_id=null;
+  this.newArticulo.art_descripcion='';
+  this.newArticulo.art_precio=null;
+  this.newArticulo.art_cantidad=null;
+  this.newArticulo.art_id=null;
+  console.log('limpia',this.newArticulo)
+}
+
 listarCategorias() {
   this.categoriaService.listCategorias().subscribe((res) => {
     this.categorias = res.categorias;
